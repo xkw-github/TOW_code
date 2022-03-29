@@ -14,7 +14,7 @@ int main() {
 	double txt[50000];
 	double run_plus=0,run_minus=0,plus=0,minus=0;
 	double run[300000]={0},tau[300000]={0};
-	//freopen("./output.txt","w",stdout);
+	freopen("./output.txt","w",stdout);
 	FILE *fp;
 	fp=fopen("./run.txt","r");
 	i=0;
