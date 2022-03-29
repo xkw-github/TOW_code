@@ -3,7 +3,6 @@
 #include <stdlib.h>
 #include <time.h>
 #include <cstdio>
-#define TOW_CC				1
 #define pause_x				30								//11.5
 #define pause_t				0.16							//0.23
 #define reverse_x			30								//11.5
@@ -17,9 +16,7 @@ int main() {
 	double run[300000]={0},tau[300000]={0};
 	//freopen("./output.txt","w",stdout);
 	FILE *fp;
-	//fp=fopen("../../../entow2/run.txt","r");
-	if(TOW_CC==1)					fp=fopen("./run.txt","r");
-	if(TOW_CC==2)					fp=fopen("./../entow2/run.txt","r");
+	fp=fopen("./run.txt","r");
 	i=0;
 	while(fscanf(fp, "%lf", &txt[i]) != EOF)
 				{i++;
@@ -34,10 +31,8 @@ int main() {
 		while(fscanf(fp, "%lf", &txt[i]) != EOF)
 			{i++;
 			if(i>=20000)		break;}
-		//fclose(fp);
 		for(i=0;i<20000;i++){
-			t[i]=txt[2*i];x[i]=txt[2*i+1]*(7*TOW_CC-6);}
-		//for(i=0;i<200;i++)			printf("%lf\t%lf\n",t[i],x[i]);
+			t[i]=txt[2*i];x[i]=txt[2*i+1];}
 		for(i=1;i<20000;i++){
 			if((x[i]-x[i-1])*(x[i+1]-x[i]) > 0){
 				run[num]+=x[i]-x[i-1];tau[num]+=t[i]-t[i-1];
@@ -60,15 +55,9 @@ int main() {
 		}
 	}
 
-	//for(i=0;i<=num;i++)			printf("%lf\t%lf\n",tau[i],run[i]);
-
 	for(i=0;i<=num;i++){
 		if(run[i]>pause_x	){			run_plus+=run[i];plus++;}
 		if(run[i]<-pause_x	){		run_minus+=run[i];minus++;}}
-
-//	for(i=0;i<=num;i++){
-//		if(run[i]>pause_x	){			run_plus+=run[i]*tau[i];plus+=tau[i];}
-//		if(run[i]<-pause_x)	{		run_minus+=run[i]*tau[i];minus+=tau[i];}}
 
 	double long_s=0,long_t=0,short_s=0,short_t=0;
 	double long_velcoity_plus,short_velcoity_plus,long_velcoity_minus,short_velcoity_minus;
@@ -93,13 +82,6 @@ int main() {
 	printf("long  velcoity plus =%lf\nlong  velcoity minus=%lf\n\n",long_velcoity_plus,long_velcoity_minus);
 
 	printf("runlength  plus=%lf\nrunlength minus=%lf\n\n",run_plus/plus,run_minus/minus);
-
-	int run_a[500]={0};
-	for(j=0;tau[j+1]!=0;j++){
-		for(i=0;i<200;i++)
-			if(run[j]>=i*15-1500 && run[j]<i*15-1500+10)
-				{run_a[i]++;break;}}
-	//for(i=0;i<200;i++)		printf("%d\t%d\n",i*15-1500,run_a[i]);
 
 
 }
