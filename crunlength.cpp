@@ -53,6 +53,7 @@ int main() {
 				else
 					num++;}
 		}
+	if(num>200000) break;
 	}
 
 	for(i=0;i<=num;i++){
