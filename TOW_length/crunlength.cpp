@@ -76,9 +76,9 @@ int main() {
 	long_velcoity_minus=long_s/long_t;short_velcoity_minus=short_s/short_t;
 
 
-	printf("v10=%.0f\t\tv20=%.0f\ne10=%.2f\t\te20=%.2f\n",l1,l2,l3,l4);
-	printf("Fs1=%.1f\t\tFs2=%.1f\nFd1=%.2f\t\tFd2=%.2f\nk1=%.2f\t\t",l5,l6,l7,l8,l9);
-	printf("k2=%.2f\npi1=%.2f\t\tpi2=%.2f\nv1back=%.0f\tv2back=%.0f\n\n",l10,l11,l12,l13,l14);
+	printf("Vfp=%.0f\t\tVfm=%.0f\ngamma0p=%.2f\tgamma0m=%.2f\n",l1,l2,l3,l4);
+	printf("Fsp=%.1f\t\tFsm=%.1f\nFdp=%.2f\t\tFdm=%.2f\n",l5,l6,l7,l8);
+	printf("pip=%.2f\t\tpim=%.2f\nVbp=%.0f\t\tVbm=%.0f\n\n",l11,l12,l13,l14);
 	printf("plus velocity of short run =%lf\nminus velocity of short run=%lf\n",short_velcoity_plus,short_velcoity_minus);
 	printf("plus velocity of long  run =%lf\nminus velocity of long  run=%lf\n\n",long_velcoity_plus,long_velcoity_minus);
 
