@@ -4,7 +4,7 @@
 #include <time.h>
 #include <stdio.h>
 
-#define snap 									10000
+#define snap 									1000000
 #define seed 									1
 
 int main() {
@@ -18,8 +18,8 @@ int main() {
 	srand((int)time(NULL));
 	freopen("./run.txt","w",stdout);
 
-	Np  = 1;		             	Nm  = 6;
-	Fsp = 6;			       	Fsm = 1.1;
+	Np  = 2;		             	Nm  = 6;
+	Fsp = 2;			       	Fsm = 1.1;
 	Fdp = 3;    				Fdm = 0.75;
 	pip = 5;    				pim = 1.6;
 	Vfp = 1000;    		        	Vfm = 650;
@@ -49,8 +49,6 @@ int main() {
          else                         gammap = 0;
          if(nm != 0)                  gammam = gamma0m*exp(Fc/(nm*Fdm));
          else                         gammam = 0;
-
-        //printf("%lf\t%lf\t%lf\t%lf\n",lam,Fc,gammap,gammam);
 
         l1 = gammap*np;                               //plus motor unbind
         l2 = pip*(Np-np);                             //plus motor bind
